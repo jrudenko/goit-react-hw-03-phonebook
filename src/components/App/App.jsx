@@ -6,15 +6,35 @@ import ContactList from 'components/ContactList';
 import { Container, Section, TitleH1, TitleH2 } from './App.styled';
 
 class App extends Component {
-    state = {
-        contacts: [
-            { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-            { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-            { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-            { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-        ],
-        filter: '',
+  state = {
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    filter: '',
+  };
+
+    componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacrs = JSON.parse(contacts);
+
+    if (parsedContacrs) {
+      this.setState({ contacts: parsedContacrs });
     }
+
+    console.log(contacts)
+  };
+
+  componentDidUpdate(prevState) {
+    const nextContacts = this.state.contacts;
+    const prevContacts = prevState.contacts;
+
+    if (nextContacts !== prevContacts) {
+      localStorage.setItem('contacts', JSON.stringify(nextContacts));
+    }
+  };
 
     addContact = ({ name, number }) => {
         const normalizedFind = name.toLowerCase();
