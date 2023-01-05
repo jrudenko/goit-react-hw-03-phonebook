@@ -36,7 +36,7 @@ img {
 body {
   margin: 0;
   height: 100%;
-  background: linear-gradient(33deg, #a2a49f, #e0d0c4, #f1dac4);
+  background: #a2a49f;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
