@@ -24,7 +24,6 @@ class App extends Component {
       this.setState({ contacts: parsedContacrs });
     }
 
-    console.log(contacts)
   };
 
   componentDidUpdate(prevState) {
